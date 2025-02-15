@@ -1,0 +1,1780 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_BUSINESS_INPUT",
+      "label": "Business Input",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "marcusolsson-static-datasource",
+      "pluginName": "Business Input"
+    },
+    {
+      "name": "DS_BUSINESS_SATELLITE",
+      "label": "Business Satellite",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "volkovlabs-grapi-datasource",
+      "pluginName": "Business Satellite"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.1.3"
+    },
+    {
+      "type": "panel",
+      "id": "marcusolsson-dynamictext-panel",
+      "name": "Business Text",
+      "version": "5.2.0"
+    },
+    {
+      "type": "datasource",
+      "id": "marcusolsson-static-datasource",
+      "name": "Business Input",
+      "version": "4.2.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "volkovlabs-grapi-datasource",
+      "name": "Business Satellite",
+      "version": "3.2.0"
+    },
+    {
+      "type": "panel",
+      "id": "volkovlabs-image-panel",
+      "name": "Business Media",
+      "version": "6.0.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "gridPos": {
+        "h": 25,
+        "w": 13,
+        "x": 0,
+        "y": 0
+      },
+      "id": 26,
+      "options": {
+        "autoPlay": true,
+        "autoPlayInfinity": false,
+        "buttons": [],
+        "controls": true,
+        "height": 0,
+        "heightMode": "auto",
+        "infinityPlay": false,
+        "mediaSources": [
+          {
+            "field": "nothing",
+            "id": "3cf7eee0-0cb0-4407-9990-74b6faf9923a",
+            "refId": "A",
+            "type": "image"
+          }
+        ],
+        "noResultsMessage": "Nothing to display...",
+        "pdfToolbar": true,
+        "scale": "auto",
+        "toolbar": true,
+        "width": 0,
+        "widthMode": "auto",
+        "zoomType": "default"
+      },
+      "pluginVersion": "6.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "nothing",
+                "type": "string",
+                "values": [
+                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB1CAYAAACF+iUMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAElSURBVHhe7dExEQAgEMCwB/+egQEVuWapgK7zTFj7N6gG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazBt5gJoIwTmZSR52gAAAABJRU5ErkJggg=="
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 4,
+        "x": 13,
+        "y": 0
+      },
+      "id": 25,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"frame\">\n\t<div class=\"center\" style=\"box-shadow: 5px 5px 5px 5px {{shadow_color}}\">\n\t\t<div class=\"profile\">\n\t\t\t<div class=\"image\">\n\t\t\t\t<img src={{image}} width=\"70\" height=\"70\" alt=\"Grafana\">\n\t\t\t</div>\n\t\t\t<div class=\"name\">{{site_name}}</div>\n\t\t\t<div class=\"job\">{{site_desc}}</div>\n\t\t\t<div class=\"actions\">\n\t\t\t\t{{version}}\n\t\t\t\t<button class=\"btn\">Open</button>\n\t\t\t\t<span style=\"color:{{shadow_color}}; font-family: Impact;font-weight: bold;\"><b>{{status}}</b></span>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"stats\">\n\t\t\t<div class=\"box\">\n\t\t\t\t<span class=\"value\">{{alerts}}</span>\n\t\t\t\t<span class=\"parameter\">Alert rules</span>\n\t\t\t</div>\n\t\t\t<div class=\"box\">\n\t\t\t\t<span class=\"value\">{{dashboards}}</span>\n\t\t\t\t<span class=\"parameter\">Dashboards</span>\n\t\t\t</div>\n\t\t\t<div class=\"box\">\n\t\t\t\t<span class=\"value\">{{datasources}}</span>\n\t\t\t\t<span class=\"parameter\">Data sources</span>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "language": "html"
+        },
+        "editors": ["styles"],
+        "externalStyles": [
+          {
+            "id": "6041a01e-5e98-4e82-9480-2ad6448237b6",
+            "url": "https://fonts.googleapis.com/css?family=Open+Sans:600,300"
+          }
+        ],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".center {\r\n\twidth: 300px;\r\n\theight: 198px;\r\n\tbackground: #fff;\r\n\tborder-radius: 10px;\r\n\toverflow: hidden;\r\n}\r\n\r\n.profile {\r\n\tfloat: left;\r\n\twidth: 200px;\r\n\theight: 320px;\r\n\ttext-align: center;\r\n\t\r\n\t.image {\r\n\t\tposition: relative;\r\n\t\twidth: 70px;\r\n\t\theight: 70px;\r\n\t\tmargin: 5px auto 0 auto;\r\n\r\n\t\timg {\r\n\t\t\tdisplay: block;\r\n\t\t}\r\n\t\t\r\n\t\t&:hover {\r\n\t\t\tcursor: pointer;\r\n\t\t\t\r\n\t\t}\r\n\t\t\r\n\t}\r\n\t\r\n\t.name {\r\n\t\tfont-size: 15px;\r\n\t\tfont-weight: 600;\r\n\t\tmargin-top: 5px;\r\n\t}\r\n\t\r\n\t.job {\r\n\t\tfont-size: 11px;\r\n\t\tline-height: 15px;\r\n\t}\r\n\t\r\n\t.actions {\r\n\t\tmargin-top: 5px;\r\n\t\t\r\n\t\t.btn {\r\n\t\t\tdisplay: block;\r\n\t\t\twidth: 80px;\r\n\t\t\theight: 20px;\r\n\t\t\tmargin: 0 auto 3px auto;\r\n\t\t\tbackground: none;\r\n\t\t\tborder: 1px solid #786450;\r\n\t\t\tborder-radius: 15px;\r\n\t\t\tfont-size: 12px;\r\n\t\t\tfont-weight: 600;\r\n\t\t\tbox-sizing: border-box;\r\n\t\t\ttransition: all .3s ease-in-out;\r\n\t\t\tcolor: $brown;\r\n\t\t\t\r\n\t\t\t&:hover {\r\n\t\t\t\tbackground: $brown;\r\n\t\t\t\tcolor: #fff;\r\n\t\t\t\tbackground-color: black;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t\r\n}\r\n\r\n.stats {\r\n\tfloat: left;\r\n\t\r\n\t.box {\r\n\t\tbox-sizing: border-box;\r\n\t\twidth: 90px;\r\n\t\theight: 65px;\r\n\t\tbackground: #EFEBFB;\r\n\t\ttext-align: center;\r\n\t\tpadding-top: 10px;\r\n\t\ttransition: all .4s ease-in-out;\r\n\t\t\r\n\t\t&:hover {\r\n\t\t\tbackground: #E1CFC2;\r\n\t\t\tcursor: pointer;\r\n\t\t}\r\n\t\t\r\n\t\t&:nth-child(2) {\r\n\t\t\tmargin: 1px 0;\r\n\t\t}\r\n\t\t\r\n\t}\r\n\t\r\n\tspan {\r\n\t\tdisplay: block;\r\n\t}\r\n\t\r\n\t.value {\r\n\t\tfont-size: 18px;\r\n\t\tfont-weight: 600;\r\n\t}\r\n\t\r\n\t.parameter {\r\n\t\tfont-size: 11px;\r\n\t}\r\n\t\r\n}\r\n",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "image",
+                "type": "string",
+                "values": [
+                  "data:image/png;base64,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",
+                  "data:image/png;base64,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",
+                  "data:image/png;base64,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"
+                ]
+              },
+              {
+                "config": {},
+                "name": "site_name",
+                "type": "string",
+                "values": ["Holland", "Spain", "France"]
+              },
+              {
+                "config": {},
+                "name": "site_desc",
+                "type": "string",
+                "values": ["Electricity check", "Field monitoring", "Transportation sector"]
+              },
+              {
+                "config": {},
+                "name": "alerts",
+                "type": "string",
+                "values": ["34", "53", "45"]
+              },
+              {
+                "config": {},
+                "name": "dashboards",
+                "type": "string",
+                "values": ["254", "138", "1289"]
+              },
+              {
+                "config": {},
+                "name": "datasources",
+                "type": "string",
+                "values": ["3", "14", "10"]
+              },
+              {
+                "config": {},
+                "name": "shadow_color",
+                "type": "string",
+                "values": ["#6AAB00", "#ff5656", "#6AAB00"]
+              },
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["11.2.1", "11.0.1", "10.0.2"]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["OK", "ERROR", "OK"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 1,
+        "x": 17,
+        "y": 0
+      },
+      "id": 27,
+      "options": {
+        "autoPlay": true,
+        "autoPlayInfinity": false,
+        "buttons": [],
+        "controls": true,
+        "height": 0,
+        "heightMode": "auto",
+        "infinityPlay": false,
+        "mediaSources": [
+          {
+            "field": "nothing",
+            "id": "3cf7eee0-0cb0-4407-9990-74b6faf9923a",
+            "refId": "A",
+            "type": "image"
+          }
+        ],
+        "noResultsMessage": "Nothing to display...",
+        "pdfToolbar": true,
+        "scale": "auto",
+        "toolbar": true,
+        "width": 0,
+        "widthMode": "auto",
+        "zoomType": "default"
+      },
+      "pluginVersion": "6.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "nothing",
+                "type": "string",
+                "values": [
+                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB1CAYAAACF+iUMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAElSURBVHhe7dExEQAgEMCwB/+egQEVuWapgK7zTFj7N6gG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazBt5gJoIwTmZSR52gAAAABJRU5ErkJggg=="
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "volkovlabs-grapi-datasource",
+        "uid": "${DS_BUSINESS_SATELLITE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 18,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^Version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "annotationDashboard": "",
+          "annotationLimit": 0,
+          "annotationNewState": "",
+          "annotationPattern": "",
+          "annotationPrevState": "",
+          "annotationRange": "",
+          "annotationType": "",
+          "datasource": {
+            "type": "volkovlabs-grapi-datasource",
+            "uid": "${DS_BUSINESS_SATELLITE}"
+          },
+          "queryText": "test",
+          "refId": "A",
+          "requestType": "health"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["ok"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-red",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 18,
+        "y": 4
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["11.1.3"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-red",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 4
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["error"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "volkovlabs-grapi-datasource",
+        "uid": "${DS_BUSINESS_SATELLITE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 18,
+        "y": 8
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^Version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "annotationDashboard": "",
+          "annotationLimit": 0,
+          "annotationNewState": "",
+          "annotationPattern": "",
+          "annotationPrevState": "",
+          "annotationRange": "",
+          "annotationType": "",
+          "datasource": {
+            "type": "volkovlabs-grapi-datasource",
+            "uid": "${DS_BUSINESS_SATELLITE}"
+          },
+          "queryText": "test",
+          "refId": "A",
+          "requestType": "health"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 8
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["ok"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 18,
+        "y": 12
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["11.0.2"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 12
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^Database$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 2,
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 25
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["11.0.1"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 25
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["ok"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "gridPos": {
+        "h": 20,
+        "w": 1,
+        "x": 6,
+        "y": 25
+      },
+      "id": 5,
+      "options": {
+        "autoPlay": true,
+        "autoPlayInfinity": false,
+        "buttons": [],
+        "controls": true,
+        "height": 0,
+        "heightMode": "auto",
+        "infinityPlay": false,
+        "mediaSources": [
+          {
+            "field": "nothing",
+            "id": "3cf7eee0-0cb0-4407-9990-74b6faf9923a",
+            "refId": "A",
+            "type": "image"
+          }
+        ],
+        "noResultsMessage": "Nothing to display...",
+        "pdfToolbar": true,
+        "scale": "auto",
+        "toolbar": true,
+        "width": 0,
+        "widthMode": "auto",
+        "zoomType": "default"
+      },
+      "pluginVersion": "6.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "nothing",
+                "type": "string",
+                "values": [
+                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB1CAYAAACF+iUMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAElSURBVHhe7dExEQAgEMCwB/+egQEVuWapgK7zTFj7N6gG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazCuwbgG4xqMazBt5gJoIwTmZSR52gAAAABJRU5ErkJggg=="
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 7,
+        "y": 25
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["10.1.0"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 10,
+        "y": 25
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["ok"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-red",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 29
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["11.0.2"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-red",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 29
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["error"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 7,
+        "y": 29
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["11.1.0"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 10,
+        "y": 29
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["ok"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 33
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["11.1.3"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 33
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["ok"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 7,
+        "y": 33
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^version$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "version",
+                "type": "string",
+                "values": ["11.1.3"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_BUSINESS_INPUT}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 10,
+        "y": 33
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_BUSINESS_INPUT}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "status",
+                "type": "string",
+                "values": ["ok"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Status",
+      "type": "stat"
+    }
+  ],
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Grafana Fleet with Business Text",
+  "uid": "eduu1tuk8gmwwd",
+  "version": 25,
+  "weekStart": ""
+}
