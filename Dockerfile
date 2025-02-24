@@ -30,7 +30,6 @@ ENV GF_PATHS_PLUGINS="/var/lib/grafana/plugins"
 ## Required for the App plugin
 ##################################################################
 
-COPY --chown=grafana:root dist /app
 COPY entrypoint.sh /
 
 ## Copy Provisioning
@@ -53,7 +52,7 @@ COPY img/fav32.png /usr/share/grafana/public/img
 COPY img/fav32.png /usr/share/grafana/public/img/apple-touch-icon.png
 
 ## Replace Logo
-COPY img/logo.png /usr/share/grafana/public/img/grafana_icon.svg
+COPY img/logo2.png /usr/share/grafana/public/img/grafana_icon.svg
 
 ## Update Background
 COPY img/background.png /usr/share/grafana/public/img/g8_login_dark.svg
@@ -93,7 +92,7 @@ RUN find /usr/share/grafana/public/build/ -name *.js \
 ## Update Title
     -exec sed -i 's|AppTitle="Grafana"|AppTitle="TriVision - Product Intelligence"|g' {} \; \
 ## Update Login Title
-    -exec sed -i 's|LoginTitle="Welcome to Grafana"|LoginTitle="TriVision Product Intelligence"|g' {} \; \
+    -exec sed -i 's|LoginTitle="Welcome to Grafana"|LoginTitle="Product Intelligence"|g' {} \; \
 ## Remove Documentation, Support, Community in the Footer
     -exec sed -i 's|\[{target:"_blank",id:"documentation".*grafana_footer"}\]|\[\]|g' {} \; \
 ## Remove Edition in the Footer

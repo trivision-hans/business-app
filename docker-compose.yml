@@ -3,7 +3,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: ghcr.io/volkovlabs/app:latest
     entrypoint: /run.sh
     ports:
       - 3000:3000/tcp
@@ -12,5 +11,4 @@ services:
       - GF_INSTALL_PLUGINS=yesoreyeram-infinity-datasource
       - GF_SECURITY_ADMIN_PASSWORD=password_password
     volumes:
-      - ./dist:/var/lib/grafana/plugins/business-app
       - ./provisioning:/etc/grafana/provisioning
