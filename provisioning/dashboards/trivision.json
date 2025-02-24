@@ -1,0 +1,1297 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Welcome to the default dashboard for your production system. ",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 15,
+      "panels": [],
+      "title": "Production ",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "ee9hckbhp924gd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Rejected Amount (sum)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Accepted Amount (sum)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "bucket",
+              "text": "Time",
+              "timestampFormat": "2006-01-02T15:04:05Z07:00",
+              "type": "timestamp"
+            },
+            {
+              "selector": "cavity",
+              "text": "Cavity",
+              "type": "number"
+            },
+            {
+              "selector": "total_amount",
+              "text": "Total Amount",
+              "type": "number"
+            },
+            {
+              "selector": "failed_amount",
+              "text": "Rejected Amount",
+              "type": "number"
+            },
+            {
+              "selector": "product_type_name",
+              "text": "Product Type",
+              "type": "string"
+            },
+            {
+              "selector": "last_occurrence",
+              "text": "Last Occurrence",
+              "type": "timestamp"
+            },
+            {
+              "selector": "first_occurrence",
+              "text": "First Occurrence",
+              "type": "timestamp"
+            },
+            {
+              "selector": "avg_production_time_sec",
+              "text": "Average Cycle Time",
+              "type": "number"
+            },
+            {
+              "selector": "customer_id",
+              "text": "customer_id",
+              "type": "number"
+            },
+            {
+              "selector": "line_id",
+              "text": "line_id",
+              "type": "number"
+            },
+            {
+              "selector": "product_type_id",
+              "text": "product_type_id",
+              "type": "number"
+            },
+            {
+              "selector": "unique_flaw_count",
+              "text": "Flaw Distribution",
+              "type": "string"
+            }
+          ],
+          "computed_columns": [
+            {
+              "selector": "total_amount - rejected_amount",
+              "text": "Accepted Amount",
+              "type": "string"
+            },
+            {
+              "selector": "accepted_amount / total_amount",
+              "text": "Acceptence Rate",
+              "type": "string"
+            },
+            {
+              "selector": "1 - acceptence_rate",
+              "text": "Rejection Rate",
+              "type": "string"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "ee9hckbhp924gd"
+          },
+          "filterExpression": "",
+          "filters": [],
+          "format": "timeseries",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "data.products_hour_aggregate",
+          "source": "url",
+          "type": "graphql",
+          "uql": "parse-json",
+          "url": "",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_graphql_query": "query MyQuery {\r\n  products_hour_aggregate(\r\n    where: {\r\n      bucket: {_gte: \"${__from:date:iso}\", _lte: \"${__to:date:iso}\"},\r\n      line_id: {_eq: ${production_line_id}},\r\n      product_type_name: {_in: [${product_type_name:doublequote}]}\r\n    }\r\n  ) {\r\n    total_amount\r\n    unique_flaw_count\r\n    product_type_name\r\n    product_type_id\r\n    line_id\r\n    last_occurrence\r\n    first_occurrence\r\n    failed_amount\r\n    customer_id\r\n    cavity\r\n    bucket\r\n    avg_production_time_sec\r\n  }\r\n}",
+            "body_type": "graphql",
+            "data": "",
+            "headers": [],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Accepted / Rejected",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Accepted Amount": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Accepted amount": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Products/hour": {
+                "aggregations": [
+                  "sum"
+                ]
+              },
+              "Rejected Amount": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Rejected amount": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Test": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Time": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Total Amount": {
+                "aggregations": [],
+                "operation": "aggregate"
+              },
+              "Total amount": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "cavity": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "time": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "Accepted Amount (sum)": 1,
+              "Rejected Amount (sum)": 2,
+              "Time": 0
+            },
+            "renameByName": {
+              "Accepted Amount (sum)": "Accepted",
+              "Rejected Amount (sum)": "Rejected",
+              "Time": ""
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total Amount"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "text",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Rejected Amount"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 9,
+        "x": 0,
+        "y": 11
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "title": "Core Metrics",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Accepted Amount": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Acceptence Rate": {
+                "aggregations": []
+              },
+              "Average Cycle Time": {
+                "aggregations": []
+              },
+              "Rejected Amount": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Time": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Total Amount": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "Accepted Amount (sum)": 2,
+              "Rejected Amount (sum)": 3,
+              "Time": 0,
+              "Total Amount (sum)": 1
+            },
+            "renameByName": {
+              "Accepted Amount (firstNotNull)": "Accepted Amount",
+              "Accepted Amount (sum)": "Accepted Amount",
+              "Acceptence Rate (mean)": "Acceptence Rate",
+              "Average Cycle Time (firstNotNull)": "Average Cycle Time",
+              "Rejected Amount (firstNotNull)": "Rejected Amount",
+              "Rejected Amount (sum)": "Rejected Amount",
+              "Total Amount (firstNotNull)": "Total Amount",
+              "Total Amount (sum)": "Total Amount"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "fixed"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 7,
+        "x": 9,
+        "y": 11
+      },
+      "id": 10,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "firstNotNull"
+          ],
+          "fields": "/^Rejection Rate$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "hide": false,
+          "panelId": 9,
+          "refId": "A",
+          "withTransforms": false
+        }
+      ],
+      "title": "Rejection Rate",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Accepted Amount": true,
+              "Acceptence Rate": true,
+              "Average Cycle Time": true,
+              "Cavity": true,
+              "First Occurrence": true,
+              "Flaw Distribution": true,
+              "Last Occurrence": true,
+              "Product Type": true,
+              "Rejected Amount": false,
+              "Rejection Rate": true,
+              "Time": true,
+              "customer_id": true,
+              "line_id": true,
+              "product_type_id": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Rejection Rate",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Rejected Amount"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Total Amount"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "Accepted Amount (sum)",
+                "Total Amount (sum)"
+              ],
+              "reducer": "delta"
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 16,
+        "y": 11
+      },
+      "id": 8,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^Average Cycle Time \\(mean\\)$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 9,
+          "refId": "A"
+        }
+      ],
+      "title": "Cycle Time",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Average Cycle Time": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "Time": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 14,
+      "panels": [],
+      "title": "Errors",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "ee9hckbhp924gd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-orange",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Shape"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Detection"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Contamination"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 17
+      },
+      "id": 11,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Value",
+          "sortDesc": false,
+          "values": [
+            "percent",
+            "value"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "ee9hckbhp924gd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "groq": "*",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "data.products_hour_aggregate{\n    $string(cavity): unique_flaw_count{\n        \"Shape\": $sum(Shape),\n        \"Detection\": $sum(Detection),\n        \"Contamination\": $sum(Contamination)\n    }\n} \n~> $each(function($value, $key) {\n    {\n      \"cavity\": $key,\n      \"value\": $value \n    } \n})\n",
+          "source": "url",
+          "type": "graphql",
+          "uql": "parse-json",
+          "url": "",
+          "url_options": {
+            "body_content_type": "text/plain",
+            "body_graphql_query": "query MyQuery {\r\n  products_hour_aggregate(\r\n    where: {\r\n      bucket: {_gte: \"${__from:date:iso}\", _lte: \"${__to:date:iso}\"},\r\n      line_id: {_eq: ${production_line_id}},\r\n      product_type_name: {_in: [${product_type_name:doublequote}]}\r\n    }\r\n  ) {\r\n    unique_flaw_count\r\n    cavity\r\n  }\r\n}",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Error Distribution",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "cavity"
+              }
+            ]
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": false,
+            "replace": false,
+            "source": "value"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "value": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-orange",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "left",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Shape"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Contamination"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Detection"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 13,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.5,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "never",
+        "stacking": "normal",
+        "text": {},
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xField": "Cavity",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 200
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 11,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "Cavity Distribution",
+      "type": "barchart"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 16,
+      "panels": [],
+      "title": "Logs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "ee9hckbhp924gd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto",
+              "wrapText": false
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 3,
+      "options": {
+        "cellHeight": "md",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "columns": [],
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "data.events",
+          "source": "url",
+          "type": "graphql",
+          "url": "",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_graphql_query": "\r\nquery Events {\r\n  events(\r\n    where: {\r\n      time: {\r\n        _gte: \"${__from:date:iso}\",\r\n        _lte: \"${__to:date:iso}\"\r\n      }\r\n    },\r\n    limit: 50\r\n  ) {\r\n    time\r\n    name\r\n    data\r\n  }\r\n}\r\n",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Events",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "json",
+            "jsonPaths": [],
+            "keepTime": false,
+            "replace": false,
+            "source": "data"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "data": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "details": 2,
+              "name": 1,
+              "time": 0
+            },
+            "renameByName": {
+              "name": ""
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "time"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "biovela_line_1",
+          "value": "biovela_line_1"
+        },
+        "definition": "",
+        "description": "",
+        "label": "Production Line",
+        "name": "production_line_name",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [],
+            "filters": [],
+            "format": "table",
+            "parser": "backend",
+            "refId": "variable",
+            "root_selector": "data.production_lines",
+            "source": "url",
+            "type": "graphql",
+            "url": "",
+            "url_options": {
+              "body_content_type": "application/json",
+              "body_graphql_query": "query ProductionLines {\r\n  production_lines {\r\n    name\r\n  }\r\n}\r\n",
+              "body_type": "graphql",
+              "data": "",
+              "method": "POST"
+            }
+          },
+          "query": "",
+          "queryType": "infinity"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "2",
+          "value": "2"
+        },
+        "definition": "",
+        "description": "Derived from production line name",
+        "hide": 2,
+        "name": "production_line_id",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [],
+            "filters": [],
+            "format": "table",
+            "parser": "backend",
+            "refId": "variable",
+            "root_selector": "data.production_lines[0]",
+            "source": "url",
+            "type": "graphql",
+            "url": "",
+            "url_options": {
+              "body_content_type": "application/json",
+              "body_graphql_query": "query ProductionLines {\r\n  production_lines(where: {name: {_eq: \"$production_line_name\"}}) {\r\n    id\r\n  }\r\n}\r\n",
+              "body_graphql_variables": "{ }",
+              "body_type": "graphql",
+              "data": "",
+              "method": "POST"
+            }
+          },
+          "query": "",
+          "queryType": "infinity"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Product Type",
+        "multi": true,
+        "name": "product_type_name",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [],
+            "filters": [],
+            "format": "table",
+            "parser": "backend",
+            "refId": "variable",
+            "root_selector": "data.products_hour_aggregate",
+            "source": "url",
+            "type": "graphql",
+            "url": "",
+            "url_options": {
+              "body_content_type": "application/json",
+              "body_graphql_query": "query GetUniqueProductNames {\r\n  products_hour_aggregate(\r\n    distinct_on: product_type_name,\r\n    where: {\r\n      bucket: {\r\n        _gte: \"${__from:date:iso}\", \r\n        _lte: \"${__to:date:iso}\"\r\n      }, \r\n      line_id: {_eq: \"${production_line_id}\"}\r\n    }\r\n  ) {\r\n    product_type_name\r\n  }\r\n}",
+              "body_graphql_variables": "{ }",
+              "body_type": "graphql",
+              "data": "",
+              "method": "POST"
+            }
+          },
+          "query": "",
+          "queryType": "infinity"
+        },
+        "refresh": 2,
+        "regex": "",
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "TriVision",
+  "uid": "deajj6ngdajuof",
+  "version": 40,
+  "weekStart": ""
+}

@@ -9,7 +9,7 @@ ENV GF_ENABLE_GZIP=true
 ENV GF_USERS_DEFAULT_THEME=light
 
 ## Enable Anonymous Authentication
-ENV GF_AUTH_ANONYMOUS_ENABLED=true
+ENV GF_AUTH_ANONYMOUS_ENABLED=false
 ENV GF_AUTH_BASIC_ENABLED=false
 
 ## Disable Sanitize
@@ -19,7 +19,7 @@ ENV GF_PANELS_DISABLE_SANITIZE_HTML=true
 ENV GF_ANALYTICS_CHECK_FOR_UPDATES=false
 
 ## Set Home Dashboard
-ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/business.json
+ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/trivision.json
 
 ## Paths
 ENV GF_PATHS_PROVISIONING="/etc/grafana/provisioning"
