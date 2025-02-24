@@ -53,11 +53,11 @@ COPY img/fav32.png /usr/share/grafana/public/img
 COPY img/fav32.png /usr/share/grafana/public/img/apple-touch-icon.png
 
 ## Replace Logo
-COPY img/logo.svg /usr/share/grafana/public/img/grafana_icon.svg
+COPY img/logo.png /usr/share/grafana/public/img/grafana_icon.svg
 
 ## Update Background
-COPY img/background.svg /usr/share/grafana/public/img/g8_login_dark.svg
-COPY img/background.svg /usr/share/grafana/public/img/g8_login_light.svg
+COPY img/background.png /usr/share/grafana/public/img/g8_login_dark.svg
+COPY img/background.png /usr/share/grafana/public/img/g8_login_light.svg
 
 ##################################################################
 ## HANDS-ON
@@ -65,8 +65,8 @@ COPY img/background.svg /usr/share/grafana/public/img/g8_login_light.svg
 ##################################################################
 
 # Update Title
-RUN sed -i 's|<title>\[\[.AppTitle\]\]</title>|<title>Business Suite</title>|g' /usr/share/grafana/public/views/index.html
-RUN sed -i 's|Loading Grafana|Loading Business Suite|g' /usr/share/grafana/public/views/index.html
+RUN sed -i 's|<title>\[\[.AppTitle\]\]</title>|<title>TriVision - PI</title>|g' /usr/share/grafana/public/views/index.html
+RUN sed -i 's|Loading Grafana|Loading Your Data|g' /usr/share/grafana/public/views/index.html
 
 ## Update Mega and Help menu
 RUN sed -i "s|\[\[.NavTree\]\],|nav,|g; \
@@ -77,7 +77,7 @@ RUN sed -i "s|\[\[.NavTree\]\],|nav,|g; \
     const connections = nav.find((element) => element.id === 'connections'); \
     if (connections) { connections['url'] = '/datasources'; connections['children'].shift(); } \
     const help = nav.find((element) => element.id === 'help'); \
-    if (help) { help['subTitle'] = 'Business Suite 11.5.1'; help['children'] = [];} \
+    if (help) { help['subTitle'] = 'TriVision 11.5.1'; help['children'] = [];} \
     window.grafanaBootData = {|g" \
     /usr/share/grafana/public/views/index.html
 
@@ -91,9 +91,9 @@ RUN sed -i 's|\[navigation.app_sections\]|\[navigation.app_sections\]\nbusiness-
 
 RUN find /usr/share/grafana/public/build/ -name *.js \
 ## Update Title
-    -exec sed -i 's|AppTitle="Grafana"|AppTitle="Business Suite"|g' {} \; \
+    -exec sed -i 's|AppTitle="Grafana"|AppTitle="TriVision - Product Intelligence"|g' {} \; \
 ## Update Login Title
-    -exec sed -i 's|LoginTitle="Welcome to Grafana"|LoginTitle="Business Suite"|g' {} \; \
+    -exec sed -i 's|LoginTitle="Welcome to Grafana"|LoginTitle="TriVision Product Intelligence"|g' {} \; \
 ## Remove Documentation, Support, Community in the Footer
     -exec sed -i 's|\[{target:"_blank",id:"documentation".*grafana_footer"}\]|\[\]|g' {} \; \
 ## Remove Edition in the Footer
